@@ -22,6 +22,11 @@ function Router() {
         <Route path="/marketplace" component={Marketplace} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/assets/:id" component={AssetDetails} />
+        <Route path="/assets/real-estate" component={AssetTypeList} />
+        <Route path="/assets/invoices" component={AssetTypeList} />
+        <Route path="/assets/equipment" component={AssetTypeList} />
+        <Route path="/settings" component={Settings} />
+        <Route path="/compliance" component={Compliance} />
         <Route component={NotFound} />
       </Switch>
     </AppShell>
