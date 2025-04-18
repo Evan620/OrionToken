@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const AssetTypeList = () => {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const assetType = location.split("/").pop() || "";
   
   const { data: assets = [], isLoading } = useQuery<Asset[]>({
@@ -37,7 +37,7 @@ const AssetTypeList = () => {
             word.charAt(0).toUpperCase() + word.slice(1)
           ).join(" ")} Assets
         </h2>
-        <Button onClick={() => location = "/tokenize"}>
+        <Button onClick={() => setLocation("/tokenize")}>
           Tokenize New Asset
         </Button>
       </div>
