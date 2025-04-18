@@ -10,6 +10,9 @@ import Tokenize from "@/pages/tokenize";
 import Marketplace from "@/pages/marketplace";
 import Portfolio from "@/pages/portfolio";
 import AssetDetails from "@/pages/asset-details";
+import AssetTypeList from "@/pages/asset-type-list";
+import Settings from "@/pages/settings";
+import Compliance from "@/pages/compliance";
 import AppShell from "@/components/layout/app-shell";
 
 function Router() {
