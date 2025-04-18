@@ -39,17 +39,17 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
     const dataPoints = performanceRange === "1W" ? 7 : 
                        performanceRange === "1M" ? 30 : 
                        performanceRange === "3M" ? 12 : 12;
-    
+
     const data = [];
     const now = new Date();
     const totalValue = assets.reduce((sum, asset) => sum + (asset.value || 0), 0);
     const volatility = totalValue * 0.15; // 15% volatility for demonstration
-    
+
     let currentValue = totalValue * 0.95; // Start a bit lower than current
-    
+
     for (let i = 0; i < dataPoints; i++) {
       const date = new Date(now);
-      
+
       if (performanceRange === "1W") {
         date.setDate(date.getDate() - (dataPoints - i - 1));
       } else if (performanceRange === "1M") {
@@ -59,25 +59,25 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
       } else {
         date.setMonth(date.getMonth() - (dataPoints - i - 1));
       }
-      
+
       // Add some random movement with an upward trend
       const randomChange = (Math.random() - 0.3) * (volatility / dataPoints);
       currentValue += randomChange;
-      
+
       // Ensure we end at the current total value
       if (i === dataPoints - 1) {
         currentValue = totalValue;
       }
-      
+
       data.push({
         name: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
         value: Math.round(currentValue),
       });
     }
-    
+
     return data;
   }, [assets, performanceRange]);
-  
+
   // Calculate portfolio stats
   const portfolioStats = useMemo(() => {
     const values = performanceData.map(d => d.value);
@@ -100,7 +100,7 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
               <span className="material-icons">more_horiz</span>
             </button>
           </div>
-          
+
           {loading ? (
             <div className="h-64 flex items-center justify-center">
               <Skeleton className="h-40 w-40 rounded-full" />
@@ -109,7 +109,7 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
             <div className="h-64 flex items-center justify-center">
               <div className="text-center">
                 <span className="material-icons text-4xl text-gray-400 mb-2">pie_chart</span>
-                <p className="text-gray-500">No assets to display</p>
+                <div className="text-gray-500">No assets to display</div> {/* Changed from <p> to <div> */}
               </div>
             </div>
           ) : (
@@ -136,7 +136,7 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
               </ResponsiveContainer>
             </div>
           )}
-          
+
           <div className="grid grid-cols-1 gap-2 mt-4">
             {distributionData.map((item, index) => (
               <div key={index} className="flex items-center justify-between">
@@ -192,7 +192,7 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
               </Button>
             </div>
           </div>
-          
+
           {loading ? (
             <div className="h-64">
               <Skeleton className="h-full w-full" />
@@ -226,7 +226,7 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
               </ResponsiveContainer>
             </div>
           )}
-          
+
           <div className="grid grid-cols-4 gap-4 mt-4">
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">30d Avg.</p>

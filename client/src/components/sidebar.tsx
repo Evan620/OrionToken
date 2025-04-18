@@ -80,17 +80,17 @@ export const Sidebar = ({
         <ul className="space-y-1">
           {mainLinks.map((link) => (
             <li key={link.href}>
-              <Link 
-                href={link.href}
+              <div
                 className={cn(
-                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm",
+                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm cursor-pointer",
                   isActive(link.href) &&
                     "text-primary bg-primary/10 dark:bg-primary/20 font-medium"
                 )}
+                onClick={() => window.location.href = link.href}
               >
                 <span className="material-icons text-lg mr-2">{link.icon}</span>
                 {link.label}
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
@@ -101,17 +101,17 @@ export const Sidebar = ({
         <ul className="space-y-1">
           {assetLinks.map((link) => (
             <li key={link.href}>
-              <Link 
-                href={link.href}
+              <div
                 className={cn(
-                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm",
+                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm cursor-pointer",
                   isActive(link.href) &&
                     "text-primary bg-primary/10 dark:bg-primary/20 font-medium"
                 )}
+                onClick={() => window.location.href = link.href}
               >
                 <span className="material-icons text-lg mr-2">{link.icon}</span>
                 {link.label}
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
@@ -122,17 +122,17 @@ export const Sidebar = ({
         <ul className="space-y-1">
           {settingLinks.map((link) => (
             <li key={link.href}>
-              <Link 
-                href={link.href}
+              <div
                 className={cn(
-                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm",
+                  "flex items-center px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md mx-2 text-sm cursor-pointer",
                   isActive(link.href) &&
                     "text-primary bg-primary/10 dark:bg-primary/20 font-medium"
                 )}
+                onClick={() => window.location.href = link.href}
               >
                 <span className="material-icons text-lg mr-2">{link.icon}</span>
                 {link.label}
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
