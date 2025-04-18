@@ -45,7 +45,9 @@ const AppShell = ({ children }: AppShellProps) => {
         <Header onMenuClick={toggleSidebar} />
 
         {/* Page content with scroll */}
-        {children}
+        <div className="flex-1 overflow-auto"> {/* Added overflow-auto for better scroll */}
+          {children}
+        </div>
       </main>
 
       {/* Mobile overlay */}

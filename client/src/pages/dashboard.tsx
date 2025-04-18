@@ -32,7 +32,7 @@ const Dashboard = () => {
   const monthlyRevenue = 8420; // For demo purposes
 
   return (
-    <div className="flex-1 overflow-y-auto p-6">
+    <div className="p-6">
       {/* Dashboard Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
         <div>
