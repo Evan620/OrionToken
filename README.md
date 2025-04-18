@@ -59,3 +59,13 @@ The project is actively being developed with the following components:
 ## License
 
 All Rights Reserved
+
+## Screenshots 
+![image](https://github.com/user-attachments/assets/e6eccf79-7cb6-4a6a-8314-44d7a15f23fb)
+![image](https://github.com/user-attachments/assets/61dbe85c-d64a-40de-a1e7-7682b39d43de)
+![image](https://github.com/user-attachments/assets/1136d111-c8d5-4fd9-8996-7fd8e9d6ee60)
+![image](https://github.com/user-attachments/assets/ff9daa03-63bd-4a2c-93a2-7828cc95afca)
+
+
+
+
