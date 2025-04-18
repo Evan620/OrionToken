@@ -141,8 +141,7 @@ const Marketplace = () => {
               </div>
             ) : (
               filteredAssets.map((asset) => (
-                <Link key={asset.id} href={`/assets/${asset.id}`}>
-                  <a className="block">
+                <Link key={asset.id} href={`/assets/${asset.id}`} className="block">
                     <Card className="overflow-hidden h-full hover:shadow-md transition-shadow">
                       <CardHeader className="p-0 relative" style={{ height: '180px' }}>
                         <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-700 dark:to-gray-900 flex items-center justify-center">
@@ -152,11 +151,10 @@ const Marketplace = () => {
                         </div>
                         <div className="absolute top-2 right-2">
                           <div className="flex items-center bg-white dark:bg-gray-800 rounded-full px-2 py-1 shadow-sm">
-                            <img 
-                              src={getBlockchainIcon(asset.blockchain)} 
-                              alt={asset.blockchain} 
-                              className="w-4 h-4 mr-1" 
-                            />
+                            <span className="material-icons text-xs mr-1">
+                              {asset.blockchain === 'ethereum' ? 'currency_bitcoin' : 
+                               asset.blockchain === 'polygon' ? 'hexagon' : 'token'}
+                            </span>
                             <span className="text-xs font-medium capitalize">
                               {asset.blockchain}
                             </span>
@@ -171,11 +169,11 @@ const Marketplace = () => {
                         <div className="flex justify-between text-sm">
                           <div>
                             <p className="text-gray-500 dark:text-gray-400">Value</p>
-                            <p className="font-medium">{formatCurrency(asset.value)}</p>
+                            <p className="font-medium"><span>{formatCurrency(asset.value)}</span></p>
                           </div>
                           <div>
                             <p className="text-gray-500 dark:text-gray-400">Tokenized</p>
-                            <p className="font-medium">{asset.tokenized}%</p>
+                            <p className="font-medium"><span>{asset.tokenized}%</span></p>
                           </div>
                         </div>
                       </CardContent>
@@ -198,7 +196,6 @@ const Marketplace = () => {
                         </div>
                       </CardFooter>
                     </Card>
-                  </a>
                 </Link>
               ))
             )}
