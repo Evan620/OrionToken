@@ -1,9 +1,9 @@
 
-# TokenizeSME Platform
+# OrionToken Platform
 
 > 🚧 **Project Status: Under Development** 
 
-A real-world asset (RWA) tokenization platform enabling small and medium enterprises to tokenize, manage, and trade their assets on the blockchain.
+Part of the Orion suite of enterprise solutions, OrionToken is a powerful asset tokenization platform enabling businesses to tokenize, manage, and trade their real-world assets on the blockchain.
 
 ## Features
 
