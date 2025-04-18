@@ -276,7 +276,15 @@ export class MemStorage implements IStorage {
 
   async createRegulatoryUpdate(insertUpdate: InsertRegulatoryUpdate): Promise<RegulatoryUpdate> {
     const id = this.currentUpdateId++;
-    const update: RegulatoryUpdate = { ...insertUpdate, id };
+    const update: RegulatoryUpdate = { 
+      ...insertUpdate, 
+      id,
+      assetTypesAffected: insertUpdate.assetTypesAffected ?? null,
+      actionRequired: insertUpdate.actionRequired ?? false,
+      actionDescription: insertUpdate.actionDescription ?? null,
+      publishDate: insertUpdate.publishDate ?? new Date(),
+      expiryDate: insertUpdate.expiryDate ?? null
+    };
     this.regulatoryUpdates.set(id, update);
     return update;
   }
@@ -374,10 +382,21 @@ export class MemStorage implements IStorage {
 
     for (const assetData of sampleAssets) {
       const asset: Asset = {
-        ...assetData,
+        ...assetData, 
         id: this.currentAssetId++,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        subtype: assetData.subtype ?? null,
+        description: assetData.description ?? null,
+        location: assetData.location ?? null,
+        company: assetData.company ?? null,
+        tokenized: assetData.tokenized ?? 0,
+        tokenizedValue: assetData.tokenizedValue ?? 0,
+        liquidity: assetData.liquidity ?? 'low',
+        status: assetData.status ?? 'draft',
+        ipfsHash: assetData.ipfsHash ?? null,
+        contractAddress: assetData.contractAddress ?? null,
+        metadata: assetData.metadata ?? {}
       };
       this.assets.set(asset.id, asset);
 
@@ -444,7 +463,10 @@ export class MemStorage implements IStorage {
       const transaction: Transaction = {
         ...txData,
         id: this.currentTransactionId++,
-        createdAt: new Date()
+        createdAt: new Date(),
+        buyerId: txData.buyerId ?? null,
+        sellerId: txData.sellerId ?? null,
+        transactionHash: txData.transactionHash ?? null
       };
       this.transactions.set(transaction.id, transaction);
     }
@@ -489,7 +511,12 @@ export class MemStorage implements IStorage {
     for (const updateData of sampleUpdates) {
       const update: RegulatoryUpdate = {
         ...updateData,
-        id: this.currentUpdateId++
+        id: this.currentUpdateId++,
+        assetTypesAffected: updateData.assetTypesAffected ?? null,
+        actionRequired: updateData.actionRequired ?? false,
+        actionDescription: updateData.actionDescription ?? null,
+        publishDate: updateData.publishDate ?? new Date(),
+        expiryDate: updateData.expiryDate ?? null
       };
       this.regulatoryUpdates.set(update.id, update);
     }
