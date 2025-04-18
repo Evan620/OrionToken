@@ -51,7 +51,7 @@ export const Sidebar = ({
   return (
     <aside
       className={cn(
-        "w-56 h-full bg-white dark:bg-gray-800 shadow-lg flex-shrink-0 border-r border-gray-200 dark:border-gray-700 transition-all duration-300",
+        "fixed md:fixed w-56 h-full bg-white dark:bg-gray-800 shadow-lg flex-shrink-0 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 z-30",
         mobileClasses,
         className
       )}
