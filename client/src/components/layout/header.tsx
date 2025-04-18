@@ -32,8 +32,8 @@ const Header = ({ onMenuClick }: HeaderProps) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-      <div className="flex items-center justify-between p-4">
+    <header className="sticky top-0 z-40 w-full bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex items-center justify-between p-4 md:pl-[18rem]">
         <div className="flex items-center">
           <Button 
             variant="ghost" 
