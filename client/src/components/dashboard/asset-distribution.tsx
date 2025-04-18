@@ -231,25 +231,25 @@ const AssetDistribution = ({ assets, loading = false }: AssetDistributionProps) 
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">30d Avg.</p>
               <p className="font-medium">
-                {loading ? <Skeleton className="h-5 w-16" /> : formatCurrency(portfolioStats.avg)}
+                {loading ? <Skeleton className="h-5 w-16" /> : <span>{formatCurrency(portfolioStats.avg)}</span>}
               </p>
             </div>
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">Volatility</p>
               <p className="font-medium">
-                {loading ? <Skeleton className="h-5 w-16" /> : portfolioStats.volatility}
+                {loading ? <Skeleton className="h-5 w-16" /> : <span>{portfolioStats.volatility}</span>}
               </p>
             </div>
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">Highest</p>
               <p className="font-medium">
-                {loading ? <Skeleton className="h-5 w-16" /> : formatCurrency(portfolioStats.highest)}
+                {loading ? <Skeleton className="h-5 w-16" /> : <span>{formatCurrency(portfolioStats.highest)}</span>}
               </p>
             </div>
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">Lowest</p>
               <p className="font-medium">
-                {loading ? <Skeleton className="h-5 w-16" /> : formatCurrency(portfolioStats.lowest)}
+                {loading ? <Skeleton className="h-5 w-16" /> : <span>{formatCurrency(portfolioStats.lowest)}</span>}
               </p>
             </div>
           </div>
